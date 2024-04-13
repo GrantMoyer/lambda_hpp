@@ -17,11 +17,11 @@ struct unassigned {
 // appropriately. All un-deduced parameters will default to the unassigned
 // type, and trying to used them will fail to compile.
 #define λ(expr) ( \
-	[=]< \
+	[&]< \
 		class T1 = λ::unassigned, \
 		class T2 = λ::unassigned, \
 		class T3 = λ::unassigned, \
 		class T4 = λ::unassigned \
-	>(T1 _1 = {}, T2 _2 = {}, T3 _3 = {}, T4 _4 = {}) \
+	>(T1&& _1 = {}, T2&& _2 = {}, T3&& _3 = {}, T4&& _4 = {}) \
 	{auto& _ = _1; return expr;} \
 )
