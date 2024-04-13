@@ -71,7 +71,7 @@ int main() {
 
 template<typename R> ostream& operator<<(ostream& os, const range_printer<R>& rp) {
 	for (const auto& val : rp.r) {
-		if (&val != rp.r.begin()) os << ", ";
+		if (&val != &*rp.r.begin()) os << ", ";
 		os << val;
 	}
 	return os;
