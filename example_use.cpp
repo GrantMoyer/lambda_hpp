@@ -7,7 +7,7 @@
 using namespace std;
 
 // Wrapper type for printing ranges as comma seperated lists
-template<typename R> struct range_printer {R r;};
+template<typename R> struct range_printer {const R& r;};
 template<typename R> ostream& operator<<(ostream& os, const range_printer<R>& rp);
 
 int main() {
